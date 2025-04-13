@@ -1,54 +1,54 @@
-# React + TypeScript + Vite
+# 🎥 Dual Video Player
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based dual video player for side-by-side video analysis with frame-accurate scrubbing, zooming, panning, and intuitive controls.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Two videos side by side**: Load and display two videos for comparison or analysis.
+- **Frame-by-frame scrubbing**: Step through videos frame by frame using buttons or keyboard arrows.
+- **Zoom & Pan**: Pinch-to-zoom (trackpad/wheel) and drag to pan each video independently.
+- **Per-player controls**: Play, pause, and scrub each video separately.
+- **Sync toggle**: Optionally sync playback between both videos.
+- **Responsive UI**: Maximized, square video players for best use of screen space.
+- **Built with React, TypeScript, and Tailwind CSS**.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Install dependencies:**
+   ```sh
+   cd src
+   npm install
+   ```
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+2. **Run the development server:**
+   ```sh
+   npm run dev
+   ```
+   Open the local URL shown in the terminal (e.g., http://localhost:5173/).
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+3. **Usage:**
+   - Click "Choose File" under each player to load a video.
+   - Use play/pause and frame-step controls below each player.
+   - Use your trackpad (pinch or ctrl+wheel) to zoom, and drag to pan the video.
+   - Use the "Sync" toggle to enable/disable synchronized playback.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- `src/components/VideoPlayer.tsx` — Main player UI and controls
+- `src/components/VideoCanvas.tsx` — Canvas rendering, zoom, and pan logic
+- `src/components/Controls.tsx` — Global sync toggle
+- `src/index.css` — Tailwind CSS setup
+
+## Roadmap
+
+- [ ] True frame-accurate scrubbing with FFmpeg/WebCodecs
+- [ ] Advanced timeline and annotation tools
+- [ ] Touch gesture support for mobile/tablet
+
+## License
+
+MIT
+
+---
+
+Made with ❤️ for video analysis and comparison.
